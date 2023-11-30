@@ -2,10 +2,12 @@ import {
   Links,
   LiveReload,
   Meta,
+  Outlet,
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-import { LinksFunction } from "@remix-run/node";
+import type { LinksFunction } from "@remix-run/node";
+import { Header } from "./components/Header";
 import styles from "./app.css";
 
 export const links: LinksFunction = () => ([
@@ -22,7 +24,10 @@ export default function App() {
         <Links />
       </head>
       <body>
-
+        <div className="max-w-screen-xl mx-auto px-8">
+          <Header />
+          <Outlet />
+        </div>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
